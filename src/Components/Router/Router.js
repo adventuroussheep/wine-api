@@ -1,26 +1,23 @@
-import React from 'react';
+import React from "react";
+import "./router.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import NavBarbs from '../NavBar/NavBarbs';
+import NavBarbs from "../NavBar/NavBarbs";
 import App from "../../App";
 import NotFound from "../404/404";
+import Scores from "../Score/Score";
+
 
 const Router = () => (
+  <div className="AppWrapper">
     <BrowserRouter>
-        <NavBarbs/>
-    <Switch>
-        <Route exact path="/"
-            // render={() =>
-            // <div>
-            //     <App/>
-            // </div>
-            component={App}
-            
-        />
-        <Route 
-            component={NotFound}
-        />
-    </Switch>
+      <NavBarbs />
+      <Switch>
+        <Route exact path="/" component={App}/>
+        <Route exact path="/scoredes" component={Scores} />
+        <Route component={NotFound} />
+      </Switch>
     </BrowserRouter>
-)
+  </div>
+);
 
 export default Router;
