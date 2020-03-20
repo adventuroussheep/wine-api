@@ -8,12 +8,18 @@
 }
 
 .wineTile{
-    background-color: rgba(206, 193, 170, 0.8);
+    /* background-color: rgba(206, 193, 170, 0.8); */
+    background-image: url("../../Assets/parchment.jpg");
+    background-position: center;
+    background-size: cover;
     text-align: center;
     align-content: center;
     list-style: none;
     margin: 5px;
-    width: 20vw;
+    min-width: 270px;
+    width: 25vw;
+    max-width: 35vh;
+    min-height: 200px;
     height: 25vh;
     border: 1px solid gray;
     display: inline-block;
@@ -21,7 +27,9 @@
 }
 
 .wineName{
-    font-size: 14px;
+    /* border: 2px solid black; */
+    font-size: 24px;
+    height: 90px;
 }
 
 .wineVintage {
@@ -34,8 +42,12 @@
 }
 
 .bottomContainer{
+    /* border: 2px solid black; */
     display: inline-flex;
 
+    /* margin-top: 50px; */
+    /* left: 0; */
+    position: inherit;
 }
 
 .reviewDiv{

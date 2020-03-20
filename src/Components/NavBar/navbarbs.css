@@ -1,0 +1,14 @@
+.BSNavWrapper{
+    position: fixed;
+    width: 100%;
+    box-shadow: 2px 2px 5px gray;
+    z-index: 100;
+}
+
+.searchByText{
+    margin-top: 9px;
+    font-size: 16px;
+    /* font-weight: bold; */
+    padding-right: 10px;
+    color: rgba(255, 255, 255, 0.836);
+}

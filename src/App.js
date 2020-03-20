@@ -6,6 +6,8 @@ import { makeStyles, createStyles } from "@material-ui/core/styles"
 import {Welcome, CheckStorage} from './Components/Welcome/Welcome';
 import WineList from './Components/WineList/WineList';
 import NavBar from "./Components/NavBar/NavBar";
+// import NavBarbs from './Components/NavBar/NavBarbs';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
@@ -33,7 +35,8 @@ class App extends Component {
       <div className="App">
 
       {/* NavBar */}
-       {this.state.visible ? <NavBar/> : null}
+      {/* <NavBarbs/> */}
+       {/* {this.state.visible ? <NavBar/> : null} */}
 
         {/* Initial Landing page */}
         {!this.state.visible ? <Welcome/> : null}
