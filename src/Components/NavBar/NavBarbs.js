@@ -15,7 +15,7 @@ class NavBarjs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      scoreAscDes: '',
+      // scoreAscDes: '',
       checkVisibility: this.props.checkVisibility
     }
   }
@@ -27,8 +27,9 @@ class NavBarjs extends Component {
 
 
   state = {
-    scoreAscDes: '',
+    // scoreAscDes: '',
     visible: false,
+    title: 'scorePropsTest'
   }
 
   checkVisibility(){
@@ -41,7 +42,7 @@ componentDidMount(){
 }
     
   
-  render() {
+  render(props) {
     const userName = localStorage.getItem('myValueInLocalStorage');
     console.log(userName);
 
@@ -55,6 +56,7 @@ componentDidMount(){
       })
     }
 
+
     return (
       <div className="BSNavWrapper">
         <Navbar bg="dark" variant="dark">
@@ -63,7 +65,7 @@ componentDidMount(){
           <Nav className="mr-auto">
            <Nav  title="asdfasdf" className="searchByText">Search By: </Nav>
             <NavDropdown title="Score" id="basic-nav-dropdown">
-              <NavDropdown.Item href="scoredes">Descending</NavDropdown.Item>
+           <NavDropdown.Item onClick={this.props.changeScoreState} href="scoredes">Descending{this.props.scoreAscDes}</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Ascending
               </NavDropdown.Item>

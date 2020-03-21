@@ -5,7 +5,10 @@ import "./score.css";
 const baseUrl = "globalwinescores/latest/?ordering=-score&limit=20";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-function Scores() {
+
+
+
+function Scores(props) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,15 +28,28 @@ function Scores() {
     fetchData();
   }, []);
 
+  
   return (
     <div>
-<br></br><br></br><br></br><br></br>
-        {isLoading ? <p>Loading...</p> : null}
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      {isLoading ? <p>Loading...</p> : null}
 
-    <div className="scoreWrapper">
+      {/* Props test */}
+      <div>
+        <button>{props.title}</button>
+      </div>
+      {/* End of test */}
+
+      <div className="scoreWrapper">
         {data.map(item => (
           <li className="scoreList" key={item.score + item.wine_id}>
-            <span><p>{item.wine}</p><p>{item.score} </p></span>
+            <span>
+              <p>{item.wine}</p>
+              <p>{item.score} </p>
+            </span>
           </li>
         ))}
       </div>
