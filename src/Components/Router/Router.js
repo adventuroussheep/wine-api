@@ -10,9 +10,9 @@ import Scores from "../Score/Score";
 const Router = () => (
   <div className="AppWrapper">
     <BrowserRouter>
-      <NavBarbs />
+      <NavBarbs checkVisibility={false}/>
       <Switch>
-        <Route exact path="/" component={App}/>
+        <Route exact path="/" component={App} checkVisibility={false}/>
         <Route exact path="/scoredes" component={Scores} />
         <Route component={NotFound} />
       </Switch>

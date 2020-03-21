@@ -1,0 +1,13 @@
+.scoreWrapper{
+    background-image: url("../../Assets/paper.jpg");
+    width: 75%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.scoreList{
+    font-weight: bolder;
+    list-style: none;
+    border-bottom: 1px solid black;
+
+}

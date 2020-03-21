@@ -23,10 +23,11 @@ export const Welcome = () => {
 
 
 export const CheckStorage = () =>{
+
     function checkStorage(){
         console.log("hello");
     }
 
-    return(<button onClick={checkStorage}  type="submit">Submit</button>
+    return(<button onClick={checkStorage} type="submit">Submit</button>
     )
 }

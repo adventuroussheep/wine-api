@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./score.css";
 
-const baseUrl = "globalwinescores/latest/?ordering=-score";
+const baseUrl = "globalwinescores/latest/?ordering=-score&limit=20";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 function Scores() {
@@ -29,13 +30,13 @@ function Scores() {
 <br></br><br></br><br></br><br></br>
         {isLoading ? <p>Loading...</p> : null}
 
-      <ul>
+    <div className="scoreWrapper">
         {data.map(item => (
-          <li key={item.score + item.wine_id}>
-            <p>{item.wine}</p>
+          <li className="scoreList" key={item.score + item.wine_id}>
+            <span><p>{item.wine}</p><p>{item.score} </p></span>
           </li>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

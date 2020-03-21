@@ -11,17 +11,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
-constructor(props){
-  super(props)
-  this.state = {
-    scoreAscDes: ''
-  }
-}
+// constructor(props){
+//   super(props)
+//   this.state = {
+//     scoreAscDes: '',
+//     checkVisibility: this.props.checkVisibility
+//   }
+// }
   state = {
-    visible: false,
+    visible: '',
     welcomeVis: true
   }
 
+  
   checkRender = () =>{
     if (localStorage.getItem('myValueInLocalStorage'))
     this.setState({visible: true})
@@ -30,7 +32,7 @@ constructor(props){
     }
   }
   
-
+  
   
   render(){
     const userName = localStorage.getItem('myValueInLocalStorage');
@@ -44,21 +46,21 @@ constructor(props){
        {/* {this.state.visible ? <NavBar/> : null} */}
 
         {/* Initial Landing page */}
-        {!this.state.visible ? <Welcome/> : null}
+        {!userName ? <Welcome/> : null}
         
         
         {/* Welcome Screen */}
-        {this.state.visible ? <div className="appWelcomeDiv"><h1>Welcome {userName}</h1>
+        {userName ? <div className="appWelcomeDiv"><h1>Welcome {userName}</h1>
           <h2>Here are the latest Wine Scores</h2></div>
         : null}
       
 
       {/* WineList/API Call */}
-      {this.state.visible ? <WineList/> : null}
+      {userName ? <WineList/> : null}
       
 
   {/* Enter Button */}
-    {!this.state.visible ? <Button className="enterBtn" variant="contained" color="default" onClick={() => {
+    {!userName ? <Button href="/" className="enterBtn" variant="contained" color="default" onClick={() => {
         this.checkRender()
       }}>Enter</Button> : null}
 

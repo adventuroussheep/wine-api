@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import {
   Button,
   Navbar,
@@ -9,14 +9,16 @@ import {
 } from "react-bootstrap";
 import "./navbarbs.css";
 
+
 class NavBarjs extends Component {
 
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     scoreAscDes: ''
-  //   }
-  // }
+  constructor(props){
+    super(props);
+    this.state = {
+      scoreAscDes: '',
+      checkVisibility: this.props.checkVisibility
+    }
+  }
 
   // changeScore = () => {
   //   this.setState({scoreAscDes: "scoredes"})
@@ -25,65 +27,43 @@ class NavBarjs extends Component {
 
 
   state = {
+    scoreAscDes: '',
     visible: false,
   }
 
-  
-
-  componentDidMount(){
-    // if(!this.state.visible){
-    //   alert("no");
-      window.addEventListener('storage', () =>
-       {
-         localStorage.getItem('myValueInLocalStorage')
-       })
-        // }
+  checkVisibility(){
+    console.log("storage check")
   }
-  
-//   componentWillUpdate(){
-//     if (localStorage.getItem('myValueInLocalStorage')){
-//       this.setState({visible: true})
-//       // alert("there")
-//     }
-//     else{
-//       this.setState({visible: false})
-//     }  
-// }
 
-
-// UNSAFE_componentWillUpdate(){
-//   if (localStorage.getItem('myValueInLocalStorage')){
-//     this.setState({visible: true})
-//     // alert("there")
-//   }
-//   else{
-//     this.setState({visible: false})
-//   }  
-// }
-
-  
+componentDidMount(){
+  this.checkVisibility();
+  window.addEventListener(this.userName, this.checkVisibility.bind(this));
+}
+    
   
   render() {
+    const userName = localStorage.getItem('myValueInLocalStorage');
+    console.log(userName);
 
-    window.onstorage = () => {
-      alert("hello");
+    function Something(){
+      React.useEffect(()=>{
+        function checkStorage(){
+          this.setState({visible: true})
+          console.log("scorlling")
+        }
+        window.addEventListener(this.userName, Something)
+      })
     }
-
-    window.addEventListener('storage', () => {
-      console.log("listening")
-         localStorage.getItem('myValueInLocalStorage')
-       })
-
 
     return (
       <div className="BSNavWrapper">
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">WineScoresAPI</Navbar.Brand>
-           {this.state.visible ? <>
+           {userName ? <>
           <Nav className="mr-auto">
            <Nav  title="asdfasdf" className="searchByText">Search By: </Nav>
             <NavDropdown title="Score" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={this.consoleLog} href="scoredes">Descending</NavDropdown.Item>
+              <NavDropdown.Item href="scoredes">Descending</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Ascending
               </NavDropdown.Item>
