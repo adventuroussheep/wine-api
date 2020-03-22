@@ -4,10 +4,10 @@ import "./welcome.css"
 
 export const Welcome = () => {
 
-  const [value, setValue] = React.useState(localStorage.getItem('myValueInLocalStorage') || '');
+  const [value, setValue] = React.useState(localStorage.getItem('userName') || '');
  
   React.useEffect(() => {
-    localStorage.setItem('myValueInLocalStorage', value);
+    localStorage.setItem('userName', value);
   }, [value]);
       
   const onChange = event => setValue(event.target.value);
@@ -19,15 +19,3 @@ export const Welcome = () => {
     </div>
   );
 };
-
-
-
-export const CheckStorage = () =>{
-
-    function checkStorage(){
-        console.log("hello");
-    }
-
-    return(<button onClick={checkStorage} type="submit">Submit</button>
-    )
-}

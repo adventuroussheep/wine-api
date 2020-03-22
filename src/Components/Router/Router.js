@@ -11,15 +11,24 @@ class Router extends Component{
   state={
     routerState: true,
     title: 'asdfasdfasdf',
-    scoreAscDes: null
+    scoreAscDes: localStorage.getItem('scoreLocalStorage') || '-score'
   }
 
 
   
   
-  scoreState = () => {
-    this.setState({scoreAscDes: 'test'})
-    alert("scoreState ran")
+  scoreStateDesc = () => {
+    this.setState({scoreAscDes: '-score'}, () => {
+      localStorage.setItem('scoreLocalStorage', this.state.scoreAscDes);
+      alert(this.state.scoreAscDes);
+    })
+  }
+
+  scoreStateAsc = () => {
+    this.setState({scoreAscDes: 'score'}, () => {
+      localStorage.setItem('scoreLocalStorage', this.state.scoreAscDes);
+      alert(this.state.scoreAscDes);
+    })
   }
   
   
@@ -30,10 +39,13 @@ class Router extends Component{
     return(
   <div className="AppWrapper">
     <BrowserRouter>
-      <NavBarbs scoreAscDes={this.state.scoreAscDes} changeScoreState={this.scoreState.bind(this, 'new something')}/>
+      <NavBarbs scoreAscDes={this.state.scoreAscDes} scoreStateDesc={this.scoreStateDesc.bind(this, 'new something')} scoreStateAsc={this.scoreStateAsc.bind(this, "new something")}/>
       <Switch>
         <Route exact path="/" component={App}/>
-        <Route exact path="/scoredes" component={(props) => <Scores {...props} title={this.state.title}/>}/>
+
+
+        <Route exact path="/scoredes" component={(props) => <Scores {...props} /> }/>
+
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

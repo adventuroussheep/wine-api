@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./score.css";
 
-const baseUrl = "globalwinescores/latest/?ordering=-score&limit=20";
+var sortAscDesc = localStorage.getItem('scoreLocalStorage');
+var baseUrl = `globalwinescores/latest/?ordering=${sortAscDesc}&limit=20`;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-
+// `asdfas${baseurel}dfasdf`
 
 
 function Scores(props) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  
+  
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(`${baseUrl}`, {
@@ -21,6 +24,7 @@ function Scores(props) {
         }
       });
 
+      console.log(baseUrl);
       console.log(result.data.results);
       setData(result.data.results);
       setIsLoading(false);

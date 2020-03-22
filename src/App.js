@@ -35,7 +35,7 @@ class App extends Component {
   
   
   render(){
-    const userName = localStorage.getItem('myValueInLocalStorage');
+    const userName = localStorage.getItem('userName');
     
     
     return (

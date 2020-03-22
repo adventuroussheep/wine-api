@@ -43,19 +43,19 @@ componentDidMount(){
     
   
   render(props) {
-    const userName = localStorage.getItem('myValueInLocalStorage');
+    const userName = localStorage.getItem('userName');
     console.log(userName);
 
-    function Something(){
-      React.useEffect(()=>{
-        function checkStorage(){
-          this.setState({visible: true})
-          console.log("scorlling")
-        }
-        window.addEventListener(this.userName, Something)
-      })
-    }
+    // function Something(){
+    //   React.useEffect(()=>{
+    //     function checkStorage(){
+    //       this.setState({visible: true})
+    //     }
+    //     window.addEventListener(this.userName, Something)
+    //   })
+    // }
 
+    
 
     return (
       <div className="BSNavWrapper">
@@ -65,8 +65,8 @@ componentDidMount(){
           <Nav className="mr-auto">
            <Nav  title="asdfasdf" className="searchByText">Search By: </Nav>
             <NavDropdown title="Score" id="basic-nav-dropdown">
-           <NavDropdown.Item onClick={this.props.changeScoreState} href="scoredes">Descending{this.props.scoreAscDes}</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+           <NavDropdown.Item onClick={this.props.scoreStateDesc} href="scoredes">Descending{this.props.scoreAscDes}</NavDropdown.Item>
+              <NavDropdown.Item onClick={this.props.scoreStateAsc} href="scoredes">
                 Ascending
               </NavDropdown.Item>
             </NavDropdown>
