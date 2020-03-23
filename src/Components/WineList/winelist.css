@@ -1,3 +1,8 @@
+.spinnerWl{
+        position: relative;
+        top: 25vh;
+}
+
 .wineListWrapper{
     position: relative;
     /* top: 15vh; */

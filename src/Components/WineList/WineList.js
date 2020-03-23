@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo, Component } from "react";
+import {Spinner} from "react-bootstrap";
 import axios from "axios";
 import "./winelist.css";
 
@@ -49,7 +50,8 @@ class WineList extends Component {
     return (
       <div className="wineListWrapper">
           {/* Maps over the wineArray to display results */}
-        {!this.state.wineArray.length ? <p>Loading...</p> : null}
+        {!this.state.wineArray.length ? <div className="spinnerWl"><Spinner animation="border" role="status">
+        </Spinner><p>Loading...</p></div> : null}
 
         {this.state.wineArray.map(wine => 
         <div className="wineTile" key={wine.score + wine.wine_id}>

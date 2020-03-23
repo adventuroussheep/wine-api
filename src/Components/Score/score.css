@@ -1,6 +1,13 @@
+.spinner{
+    position: relative;
+    top: 50vh;
+}
+
 .scoreWrapper{
     background-image: url("../../Assets/paper.jpg");
     width: 75%;
+    position: relative;
+    top: 150px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -10,4 +17,59 @@
     list-style: none;
     border-bottom: 1px solid black;
 
+}
+
+.addButton{
+    position: relative;
+    display: inline-flex;
+    left: 40%;
+    /* margin-bottom: 5px; */
+    bottom: 40px;
+    margin-bottom: -40px;
+}
+
+
+.sortMenuWrapper{
+    position: relative;
+    background-color: white;
+    box-shadow: 2px 2px 5px;
+    border-radius: 5px;
+    width: 75%;
+    max-width: 1000px;
+    top: 100px;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+
+.sortTitle{
+    margin-right: 8px;
+}
+
+
+.scoreSortWrapper{
+    padding: 3px 0;
+    margin: 0 20px;
+    /* margin-right: 100%; */
+}
+
+.colorSortWrapper{
+    padding: 3px 0;
+    margin: 0 20px;
+}
+
+.dateSortWrapper{
+    display: inline-flex;
+    text-align: center;
+    width: 150px;
+    margin: 0 20px;
+    padding: 3px 0;
+}
+
+.dateInput{
+    text-align: center;
+}
+
+.sortSubmitBtn{
+    margin: 0 5px;
 }
