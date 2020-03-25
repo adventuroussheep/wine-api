@@ -11,10 +11,14 @@ class Router extends Component{
   state={
     routerState: true,
     title: 'asdfasdfasdf',
-    scoreAscDes: localStorage.getItem('scoreLocalStorage') || '-score'
+    scoreAscDes: localStorage.getItem('scoreLocalStorage') || '-score',
+    yearSelectionChild: ''
   }
 
 
+  // yearSelectFunc = () => {
+  //   this.setState({yearSelectionChild} => ({yearSelectionChild: {...yearSelectionChild, yearSelectFunc}}))
+  // }
   
   
   scoreStateDesc = () => {
