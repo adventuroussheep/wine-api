@@ -87,7 +87,7 @@ class NavBarjs extends Component {
     return (
       <div className="BSNavWrapper">
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href={process.env.PUBLIC_URL + `/`}>WineScoresAPI</Navbar.Brand>
+          <Navbar.Brand href={`/`}>WineScoresAPI</Navbar.Brand>
           {userName ? (
             <>
 
@@ -96,20 +96,20 @@ class NavBarjs extends Component {
                 <NavDropdown title="Score" id="basic-nav-dropdown">
                   <NavDropdown.Item
                     onClick={this.props.scoreStateDesc}
-                    href={process.env.PUBLIC_URL + `/scoredes`}
+                    href={`/scoredes`}
                   >
                     Descending
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={this.props.scoreStateAsc}
-                    href={process.env.PUBLIC_URL + `/scoredes`}
+                    href={`/scoredes`}
                   >
                     Ascending
                   </NavDropdown.Item>
                 </NavDropdown>
 
                 {/* Filter route */}
-                <Nav.Link href={process.env.PUBLIC_URL + `/scoredes`}>Filter</Nav.Link>
+                <Nav.Link href={`/scoredes`}>Filter</Nav.Link>
               </Nav>
 
               {/* Search Field & Button */}
