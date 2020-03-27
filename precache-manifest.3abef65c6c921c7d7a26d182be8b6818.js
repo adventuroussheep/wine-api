@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6f97934816d486560071a3d0b9f4f1b8",
+    "revision": "475078993b13f2cda9bd99ccae57e502",
     "url": "/wine-api/index.html"
   },
   {
-    "revision": "b1c0ea74c1f910ad447b",
+    "revision": "1c216608a140936e0706",
     "url": "/wine-api/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "a84866fb3ac5c8b94641",
+    "revision": "e87fd28e668ec6dc235c",
     "url": "/wine-api/static/css/main.3fc91c3f.chunk.css"
   },
   {
-    "revision": "b1c0ea74c1f910ad447b",
-    "url": "/wine-api/static/js/2.5b1b0f4e.chunk.js"
+    "revision": "1c216608a140936e0706",
+    "url": "/wine-api/static/js/2.d497ee6d.chunk.js"
   },
   {
     "revision": "2ade8cbc5191dce489b21485a18d88c5",
-    "url": "/wine-api/static/js/2.5b1b0f4e.chunk.js.LICENSE.txt"
+    "url": "/wine-api/static/js/2.d497ee6d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a84866fb3ac5c8b94641",
-    "url": "/wine-api/static/js/main.1ecaa394.chunk.js"
+    "revision": "e87fd28e668ec6dc235c",
+    "url": "/wine-api/static/js/main.e9b19f05.chunk.js"
   },
   {
     "revision": "4cd8ec3d0215525334fa",
