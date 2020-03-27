@@ -1,9 +1,9 @@
-import React, { useState, useEffect, memo, Component } from "react";
+import React, { Component } from "react";
 import {Spinner} from "react-bootstrap";
 import axios from "axios";
 import "./winelist.css";
 
-export const baseUrl = "globalwinescores/latest/?limit=21";
+export const baseUrl = "globalwinescores/latest/?limit=20";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -26,7 +26,7 @@ class WineList extends Component {
     // }
 
     
-    const result = await axios
+     await axios
       .get(`${baseUrl}`, {
         headers: {
           Accept: "application/json",
@@ -42,7 +42,6 @@ class WineList extends Component {
       .then(() => { 
           const winesToArray = Array.from(this.state.wines);
           this.setState({wineArray: winesToArray});
-          console.log(this.state.wineArray[0].wine + this.state.wineArray[0].wine_id);
         })
   };
 

@@ -24,14 +24,12 @@ class Router extends Component{
   scoreStateDesc = () => {
     this.setState({scoreAscDes: '-score'}, () => {
       localStorage.setItem('scoreLocalStorage', this.state.scoreAscDes);
-      alert(this.state.scoreAscDes);
     })
   }
 
   scoreStateAsc = () => {
     this.setState({scoreAscDes: 'score'}, () => {
       localStorage.setItem('scoreLocalStorage', this.state.scoreAscDes);
-      alert(this.state.scoreAscDes);
     })
   }
   

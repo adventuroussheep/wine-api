@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Button } from "@material-ui/core";
-import { makeStyles, createStyles } from "@material-ui/core/styles"
-import {Welcome, CheckStorage} from './Components/Welcome/Welcome';
+// import { makeStyles, createStyles } from "@material-ui/core/styles"
+import {Welcome} from './Components/Welcome/Welcome';
 import WineList from './Components/WineList/WineList';
-import NavBar from "./Components/NavBar/NavBar";
+// import NavBar from "./Components/NavBar/NavBar";
 // import NavBarbs from './Components/NavBar/NavBarbs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

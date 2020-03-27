@@ -11,8 +11,8 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 import purple from '@material-ui/core/colors/purple';
-import red from '@material-ui/core/colors/red';
-const primary = red[500]; // #F44336
+// import red from '@material-ui/core/colors/red';
+// const primary = red[500]; // #F44336
 const accent = purple['A200']; // #E040FB
 
 const useStyles = makeStyles(theme => ({

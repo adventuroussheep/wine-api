@@ -22,26 +22,14 @@ function Scores(props) {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  var [year, setYear] = useState("");
-  var [something, scoreSelection] = useState("");
-  var scoreSelection1 = "";
-  var colorSelection = "";
-
+  // Variables for filter search
+  // var [year, setYear] = useState("");
+  // var [something, scoreSelection] = useState("");
+  // var scoreSelection1 = "";
+  // var colorSelection = "";
   var userScore = localStorage.getItem('yearSelect');
 
-
-  // Vars for year selection
-  let minOffset = 0,
-    maxOffset = 120;
-  let thisYear = new Date().getFullYear();
-  let allYears = [];
-  for (let x = 0; x <= maxOffset; x++) {
-    allYears.push(thisYear - x);
-  }
-  const yearList = allYears.map(x => {
-    return <option key={x}>{x}</option>;
-  });
-
+  var cartArray = JSON.parse(localStorage.getItem("userCart")) || [];
 
 
   // API Hook
@@ -57,8 +45,8 @@ function Scores(props) {
         }
       });
 
-      console.log(baseUrl);
-      console.log(result.data.results);
+      // console.log(baseUrl);
+      // console.log(result.data.results);
       setData(result.data.results);
       setIsLoading(false);
     };
@@ -67,8 +55,9 @@ function Scores(props) {
 
 
 
-   // API filter
+   // API filter function
   const filterSearch = () => {
+    localStorage.setItem("yearSelect", "");
     console.log(baseUrl);
     const fetchData = async () => {
       const result = await axios(`${baseUrl}`, {
@@ -77,23 +66,19 @@ function Scores(props) {
           Authorization: API_KEY
         }
       });
-
-      console.log(baseUrl);
-      console.log(result.data.results);
+      // console.log(baseUrl);
+      // console.log(result.data.results);
       setData(result.data.results);
       setIsLoading(false);
     };
     fetchData();
   }
-  // }, []);
+
 
   // Submit button API Call and Validation
 
   const searchValidation = () => {
-    // console.log(localStorage.getItem("colorSelect"));
-    // console.log(localStorage.getItem("scoreSelect"));
-    // console.log(localStorage.getItem("yearSelect"));
-
+    setIsLoading(true);
     // If no options, no valid year, all optons
     if (!localStorage.getItem("yearSelect") && !localStorage.getItem("scoreSelect") && !localStorage.getItem("colorSelect")) {
       alert("Please enter search options to continue");
@@ -104,10 +89,10 @@ function Scores(props) {
       !localStorage.getItem("scoreSelect") &&
       !localStorage.getItem("colorSelect")
     ) {
-      alert("Please enter a Year");
+      alert("Please enter a valid Year");
     }
     if (localStorage.getItem("yearSelect").length === 4 && localStorage.getItem("scoreSelect") && localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}&color=${localStorage.getItem("colorSelect")}`;
+      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}&color=${localStorage.getItem("colorSelect")}`;
       console.log("all There");
       console.log(baseUrl);
       filterSearch();
@@ -115,13 +100,13 @@ function Scores(props) {
       // if Year routes
     }
     if (localStorage.getItem("yearSelect").length === 4 && localStorage.getItem("scoreSelect") && !localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
+      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
       console.log("year and score");
       console.log(baseUrl);
       filterSearch();
     }
     if (localStorage.getItem("yearSelect").length === 4 && !localStorage.getItem("scoreSelect") && localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?color=${localStorage.getItem("colorSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
+      baseUrl = `globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
       console.log("year and color");
       console.log(baseUrl);
       filterSearch();
@@ -140,7 +125,7 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       !localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?ordering=${localStorage.getItem("scoreSelect")}`;
+      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}`;
       console.log("score only");
       console.log(baseUrl);
       filterSearch();
@@ -150,9 +135,9 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?ordering=${localStorage.getItem("scoreSelect")}&color=${localStorage.getItem("colorSelect")}`;
-      console.log("score and color");
-      console.log(baseUrl);
+      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&color=${localStorage.getItem("colorSelect")}`;
+      // console.log("score and color");
+      // console.log(baseUrl);
       filterSearch();
     }
 
@@ -161,7 +146,7 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?color=${localStorage.getItem("colorSelect")}`;
+      baseUrl = `globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}`;
       console.log("color only");
       console.log(baseUrl);
       filterSearch();
@@ -265,7 +250,7 @@ function Scores(props) {
 
 
           {/* Date Sort */}
-          <InputGroup xs lg="2" className="dateSortWrapper">
+          <InputGroup lg="2" className="dateSortWrapper">
             <InputGroup.Prepend>
               <InputGroup.Text
                 type="number"
@@ -279,7 +264,6 @@ function Scores(props) {
               type="number"
               onChange={event => {
                 localStorage.setItem("yearSelect", event.target.value)
-                // setYear(event.target.value);
               }}
               placeholder="'eg: 1981'"
               aria-label="Default"
@@ -303,9 +287,13 @@ function Scores(props) {
         </div>
       ) : null}
 
-      <div className="scoreWrapper">
-        {data.map(item => (
-          <li className="scoreList" key={item.score + item.wine_id}>
+
+{!isLoading ? (
+  <div className="scoreWrapper">
+
+        {/* Maps over API filter responses */}
+        {data.map((item, index) => (
+          <li className="scoreList" key={index}>
             <span>
               <p>{item.wine}</p>
               <p>{item.score} </p>
@@ -314,19 +302,18 @@ function Scores(props) {
               <Button
                 className="addButton"
                 onClick={() => {
-                  alert(item.wine);
-                  console.log(scoreSelection);
-                  console.log(colorSelection);
-                  // console.log(userYear);
+                  cartArray.push(item);
+                  localStorage.setItem('userCart', JSON.stringify(cartArray));
                 }}
                 variant="success"
-              >
+                >
                 Add
               </Button>
             </span>
           </li>
         ))}
       </div>
+        ) : null}
     </div>
   );
 }
