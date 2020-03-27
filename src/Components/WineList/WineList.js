@@ -3,7 +3,7 @@ import {Spinner} from "react-bootstrap";
 import axios from "axios";
 import "./winelist.css";
 
-export const baseUrl = "https://api.globalwinescore.com/globalwinescores/latest/?limit=20";
+export const baseUrl = "https://cors-anywhere.herokuapp.com/https://api.globalwinescore.com/globalwinescores/latest/?limit=20";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 

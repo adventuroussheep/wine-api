@@ -43,10 +43,10 @@ class Router extends Component{
     <BrowserRouter>
       <NavBarbs scoreAscDes={this.state.scoreAscDes} scoreStateDesc={this.scoreStateDesc.bind(this, 'new something')} scoreStateAsc={this.scoreStateAsc.bind(this, "new something")}/>
       <Switch>
-        <Route exact path={`${process.env.PUBLIC_URL}/`} component={App}/>
+        <Route path={process.env.PUBLIC_URL + `/`} component={App}/>
 
 
-        <Route exact path={`${process.env.PUBLIC_URL}/scoredes`} component={(props) => <Scores {...props} /> }/>
+        <Route path={process.env.PUBLIC_URL + `/scoredes`} component={(props) => <Scores {...props} /> }/>
 
         <Route component={NotFound} />
       </Switch>

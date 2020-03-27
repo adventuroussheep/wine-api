@@ -27,8 +27,8 @@ class App extends Component {
   checkRender = () =>{
     if (localStorage.getItem('myValueInLocalStorage'))
     this.setState({visible: true})
-    else {
-      alert('Please enter a Name');
+    if (!localStorage.getItem('myValueInLocalStorage')){
+      // alert('Please enter a Name');
     }
   }
   
@@ -60,7 +60,7 @@ class App extends Component {
       
 
   {/* Enter Button */}
-    {!userName ? <Button href={`${process.env.PUBLIC_URL}/`} className="enterBtn" variant="contained" color="default" onClick={() => {
+    {!userName ? <Button href={process.env.PUBLIC_URL + `/`} className="enterBtn" variant="contained" color="default" onClick={() => {
         this.checkRender()
       }}>Enter</Button> : null}
 
