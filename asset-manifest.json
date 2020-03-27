@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wine-api/static/css/main.ffac3cc4.chunk.css",
-    "main.js": "/wine-api/static/js/main.f28d6019.chunk.js",
-    "main.js.map": "/wine-api/static/js/main.f28d6019.chunk.js.map",
+    "main.js": "/wine-api/static/js/main.028bdce9.chunk.js",
+    "main.js.map": "/wine-api/static/js/main.028bdce9.chunk.js.map",
     "runtime-main.js": "/wine-api/static/js/runtime-main.785c93bb.js",
     "runtime-main.js.map": "/wine-api/static/js/runtime-main.785c93bb.js.map",
     "static/css/2.de424728.chunk.css": "/wine-api/static/css/2.de424728.chunk.css",
     "static/js/2.5b1b0f4e.chunk.js": "/wine-api/static/js/2.5b1b0f4e.chunk.js",
     "static/js/2.5b1b0f4e.chunk.js.map": "/wine-api/static/js/2.5b1b0f4e.chunk.js.map",
     "index.html": "/wine-api/index.html",
-    "precache-manifest.d0a234c795ed4e9cbd04d0a2ece19f12.js": "/wine-api/precache-manifest.d0a234c795ed4e9cbd04d0a2ece19f12.js",
+    "precache-manifest.b1f3568db70c034e251218fcbf7999d0.js": "/wine-api/precache-manifest.b1f3568db70c034e251218fcbf7999d0.js",
     "service-worker.js": "/wine-api/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/wine-api/static/css/2.de424728.chunk.css.map",
     "static/css/main.ffac3cc4.chunk.css.map": "/wine-api/static/css/main.ffac3cc4.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.de424728.chunk.css",
     "static/js/2.5b1b0f4e.chunk.js",
     "static/css/main.ffac3cc4.chunk.css",
-    "static/js/main.f28d6019.chunk.js"
+    "static/js/main.028bdce9.chunk.js"
   ]
 }
