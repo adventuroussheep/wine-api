@@ -13,7 +13,7 @@ import {
 import "./score.css";
 
 var sortAscDesc = localStorage.getItem("scoreLocalStorage");
-var baseUrl = `globalwinescores/latest/?ordering=${sortAscDesc}&limit=20`;
+var baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?ordering=${sortAscDesc}&limit=20`;
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -92,7 +92,7 @@ function Scores(props) {
       alert("Please enter a valid Year");
     }
     if (localStorage.getItem("yearSelect").length === 4 && localStorage.getItem("scoreSelect") && localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}&color=${localStorage.getItem("colorSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}&color=${localStorage.getItem("colorSelect")}`;
       console.log("all There");
       console.log(baseUrl);
       filterSearch();
@@ -100,19 +100,19 @@ function Scores(props) {
       // if Year routes
     }
     if (localStorage.getItem("yearSelect").length === 4 && localStorage.getItem("scoreSelect") && !localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
       console.log("year and score");
       console.log(baseUrl);
       filterSearch();
     }
     if (localStorage.getItem("yearSelect").length === 4 && !localStorage.getItem("scoreSelect") && localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}&limit=20&vintage=${localStorage.getItem("yearSelect")}`;
       console.log("year and color");
       console.log(baseUrl);
       filterSearch();
     }
     if (localStorage.getItem("yearSelect").length === 4 && !localStorage.getItem("scoreSelect") && !localStorage.getItem("colorSelect")) {
-      baseUrl = `globalwinescores/latest/?limit=20&vintage=${localStorage.getItem("yearSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&vintage=${localStorage.getItem("yearSelect")}`;
       console.log(localStorage.getItem("scoreSelect"));
       console.log("year only");
       console.log(baseUrl);
@@ -125,7 +125,7 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       !localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}`;
       console.log("score only");
       console.log(baseUrl);
       filterSearch();
@@ -135,7 +135,7 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&color=${localStorage.getItem("colorSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&ordering=${localStorage.getItem("scoreSelect")}&color=${localStorage.getItem("colorSelect")}`;
       // console.log("score and color");
       // console.log(baseUrl);
       filterSearch();
@@ -146,7 +146,7 @@ function Scores(props) {
       (localStorage.getItem("yearSelect").length !== 4 || localStorage.getItem("yearSelect").length <= 3) &&
       localStorage.getItem("colorSelect")
     ) {
-      baseUrl = `globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}`;
+      baseUrl = `https://api.globalwinescore.com/globalwinescores/latest/?limit=20&color=${localStorage.getItem("colorSelect")}`;
       console.log("color only");
       console.log(baseUrl);
       filterSearch();

@@ -60,7 +60,7 @@ class App extends Component {
       
 
   {/* Enter Button */}
-    {!userName ? <Button href="/" className="enterBtn" variant="contained" color="default" onClick={() => {
+    {!userName ? <Button href={`${process.env.PUBLIC_URL}/`} className="enterBtn" variant="contained" color="default" onClick={() => {
         this.checkRender()
       }}>Enter</Button> : null}
 
